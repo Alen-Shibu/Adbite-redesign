@@ -1,0 +1,41 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:    #0f0d0a;
+  --paper:  #f5f0e8;
+  --rust:   #c94a2b;
+  --gold:   #d4a94a;
+  --muted:  #8a8278;
+  --light:  #ede8de;
+  --white:  #faf8f4;
+  --nav-h:  72px;
+}
+
+html  { scroll-behavior: smooth; }
+body  { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--ink); overflow-x: hidden; }
+
+@keyframes fadeUp   { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse    { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(1.4); } }
+@keyframes ticker   { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.section-label {
+  font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--rust); font-weight: 500; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content: ''; width: 32px; height: 1px; background: var(--rust); }
+
+.section-h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  letter-spacing: .02em; line-height: .95;
+}
+
+.section-h2 em { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--rust); }
+
+@media (max-width: 768px) {
+  section { padding: 64px 20px !important; }
+}

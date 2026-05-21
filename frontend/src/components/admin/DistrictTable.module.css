@@ -1,0 +1,25 @@
+.wrap  { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.th {
+  padding: 10px 16px; font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .12em; color: rgba(245,240,232,.4);
+  text-align: left; border-bottom: 1px solid rgba(245,240,232,.08); font-weight: 400;
+}
+.td { padding: 14px 16px; font-size: .88rem; color: var(--paper); border-bottom: 1px solid rgba(245,240,232,.05); }
+.empty { text-align: center; padding: 48px 0; color: rgba(245,240,232,.3); }
+
+.btnEdit {
+  background: rgba(212,169,74,.15); border: 1px solid rgba(212,169,74,.3);
+  color: var(--gold); padding: 5px 14px; border-radius: 3px;
+  cursor: pointer; font-size: .78rem; font-family: 'DM Sans', sans-serif;
+  margin-right: 8px; transition: background .2s;
+}
+.btnEdit:hover { background: rgba(212,169,74,.25); }
+
+.btnDel {
+  background: rgba(201,74,43,.15); border: 1px solid rgba(201,74,43,.3);
+  color: var(--rust); padding: 5px 14px; border-radius: 3px;
+  cursor: pointer; font-size: .78rem; font-family: 'DM Sans', sans-serif;
+  transition: background .2s;
+}
+.btnDel:hover { background: rgba(201,74,43,.25); }

@@ -1,0 +1,23 @@
+.page    { min-height: 100vh; background: var(--ink); }
+.main    { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+.topBar  { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; }
+.pageTitle { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: .06em; color: var(--paper); line-height: 1; }
+.pageSub   { font-size: .82rem; color: rgba(245,240,232,.4); margin-top: 4px; }
+.btnAdd {
+  background: var(--rust); color: #fff; border: none; border-radius: 4px;
+  padding: 11px 24px; font-size: .85rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: background .2s; white-space: nowrap;
+}
+.btnAdd:hover { background: #a83a1e; }
+
+.tableWrap { background: #141210; border: 1px solid rgba(245,240,232,.08); border-radius: 8px; overflow: hidden; }
+.loading   { padding: 48px; text-align: center; color: rgba(245,240,232,.35); font-size: .9rem; }
+
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: #2d7a4e; color: #fff;
+  padding: 12px 20px; border-radius: 6px;
+  font-size: .85rem; z-index: 400;
+  animation: fadeUp .3s ease;
+}

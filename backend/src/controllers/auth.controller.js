@@ -17,7 +17,7 @@ export const loginAdmin = async (req, res) => {
       res.cookie('jwt', token, {
         httpOnly: true,                 // Prevents JavaScript from reading the cookie (protects against XSS attacks)
         secure: process.env.NODE_ENV === 'production', // Only sends via HTTPS in production
-        sameSite: 'strict',             // Protects against CSRF attacks
+        sameSite: 'lax',             // Protects against CSRF attacks
         maxAge: 24 * 60 * 60 * 1000,    // Cookie expires in 1 day (matches JWT expiration)
       });
 
