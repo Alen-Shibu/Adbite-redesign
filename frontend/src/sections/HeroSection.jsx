@@ -1,35 +1,31 @@
-import React from 'react';
-import '../styles/Hero.css';
+import React from 'react'
 
-function Hero() {
-  // Hardcoding stats directly in JSX creates redundant elements.
-  // Storing them in an array makes it a breeze to modify or fetch from your database later.
+const HeroSection = () => {
+  //Not hardcoding stats make its easier to modify and update
   const metrics = [
-    { value: '50', suffix: '+', label: 'Venues' },
-    { value: '10', suffix: '+', label: 'Cities' },
-    { value: '200', suffix: '+', label: 'Campaigns' }
+    {value:"50",suffix:"+",label:"Venues"},
+    {value:"10",suffix:"+",label:"Cities"},
+    {value:"200",suffix:"+",label:"Campaigns"}
   ];
-
   return (
     <section id="hero" className="hero-section">
-      
-      {/* 1. LEFT SIDE: HEADING & METRICS */}
+      {/* Left side */}
       <div className="hero-left">
         <div className="hero-badge">
           Kerala's Indoor Advertising Experts
         </div>
-        
+
         <h1 className="hero-h1">
-          YOUR BRAND,<br />
-          <span className="serif-italic">everywhere</span><br />
-          INDOORS.
+          YOUR BRAND <br />
+          <span className="serif-italic">everywhere</span> <br />
+          INDOORS
         </h1>
-        
-        <p className="hero-sub">
+
+        <p className='hero-sub'>
           Adbite places your brand inside the spaces people actually spend time — 
           gyms, clinics, cafés, salons, and more. High-impact indoor advertising across Kerala.
         </p>
-        
+
         <div className="hero-actions">
           <a href="#contact" className="btn-primary">Start a Campaign</a>
           <a href="#services" className="btn-ghost">
@@ -41,20 +37,23 @@ function Hero() {
           </a>
         </div>
 
-        {/* Dynamic loop over our metrics array */}
         <div className="hero-stats">
-          {metrics.map((stat, index) => (
-            <div key={index} className="stat-group">
-              <div className="stat-num">
-                {stat.value}<span>{stat.suffix}</span>
+          {
+            metrics.map((stat,idx)=>(
+              <div className="stat-group" key={idx}>
+                <div className="stat-num">
+                  {stat.value}<span>{stat.suffix}</span>
+                </div>
+                <div className="stat-label">
+                  {stat.label}
+                </div>
               </div>
-              <div className="stat-label">{stat.label}</div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
 
-      {/* 2. RIGHT SIDE: THE DISPLAY SCREEN VISUALS */}
+      {/* 2. RIGHT SIDE: THE DISPLAY SCREEN VISUALS - Completely AI generated*/}
       <div className="hero-right">
         <div className="hero-grid-bg"></div>
         
@@ -84,9 +83,8 @@ function Hero() {
         
         <div className="hero-tag-watermark">ADB</div>
       </div>
-
     </section>
-  );
+  )
 }
 
-export default Hero;
+export default HeroSection
