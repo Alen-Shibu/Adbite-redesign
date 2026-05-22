@@ -1,0 +1,57 @@
+.section { background: var(--paper); padding: 100px 48px; }
+
+.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; }
+
+/* Info cards */
+.info { display: flex; flex-direction: column; gap: 14px; }
+.infoCard {
+  padding: 20px 24px; border: 1px solid rgba(15,13,10,.12);
+  border-radius: 6px; background: var(--white);
+  transition: border-color .25s;
+}
+.infoCard:hover { border-color: var(--rust); }
+.infoLabel { display: block; font-size: .68rem; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); margin-bottom: 5px; }
+.infoVal   { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; transition: color .2s; line-height: 1.35; }
+a.infoVal:hover { color: var(--rust); }
+
+/* Form */
+.form  { display: flex; flex-direction: column; gap: 18px; }
+.row   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 7px; }
+.field label { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.field input,
+.field textarea,
+.field select {
+  background: var(--white);
+  border: 1px solid rgba(15,13,10,.18);
+  border-radius: 4px; padding: 11px 14px;
+  font-size: .95rem; font-family: 'DM Sans', sans-serif;
+  color: var(--ink); outline: none;
+  transition: border-color .25s, box-shadow .25s;
+  width: 100%; appearance: none;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: var(--rust);
+  box-shadow: 0 0 0 3px rgba(201,74,43,.1);
+}
+.field textarea { resize: none; height: 108px; }
+.field input::placeholder,
+.field textarea::placeholder { color: rgba(15,13,10,.3); }
+
+.submit {
+  background: var(--rust); color: #fff;
+  border: none; padding: 14px 36px;
+  font-family: 'DM Sans', sans-serif; font-size: .85rem;
+  font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+  border-radius: 4px; cursor: pointer; width: fit-content;
+  transition: background .25s;
+}
+.submit:hover:not(:disabled) { background: #a83a1e; }
+.submit:disabled { background: #2d7a4e; cursor: default; }
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .row    { grid-template-columns: 1fr; }
+}
