@@ -1,23 +1,14 @@
-import Navbar from '../components/shared/Navbar'
-import Footer from '../components/shared/Footer'
-import HeroSection from '../components/home/HeroSection'
-import Ticker from '../components/home/Ticker'
-import ServicesSection from '../components/home/ServicesSection'
-import LocationsSection from '../components/home/LocationsSection'
-import ContactSection from '../components/home/ContactSection'
+import React from 'react'
+import Navbar from '../components/Navbar'
+import HeroSection from '../sections/HeroSection'
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <>
+    <div>
       <Navbar />
-      <main>
-        <HeroSection />
-        <Ticker />
-        <ServicesSection />
-        <LocationsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </>
+      <HeroSection />
+    </div>
   )
 }
+
+export default HomePage
