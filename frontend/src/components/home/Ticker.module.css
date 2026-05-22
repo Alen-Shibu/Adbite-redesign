@@ -1,4 +1,0 @@
-.wrap  { background: var(--ink); padding: 14px 0; overflow: hidden; white-space: nowrap; }
-.track { display: inline-flex; animation: ticker 24s linear infinite; }
-.item  { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: .12em; padding: 0 28px; color: rgba(245,240,232,.5); }
-.dot   { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; padding: 0 4px; color: var(--rust); }
