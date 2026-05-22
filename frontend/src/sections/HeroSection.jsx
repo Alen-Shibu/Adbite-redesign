@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles/Hero.css'
 
 const HeroSection = () => {
   //Not hardcoding stats make its easier to modify and update
@@ -16,7 +17,7 @@ const HeroSection = () => {
         </div>
 
         <h1 className="hero-h1">
-          YOUR BRAND <br />
+          YOUR BRAND, <br />
           <span className="serif-italic">everywhere</span> <br />
           INDOORS
         </h1>
