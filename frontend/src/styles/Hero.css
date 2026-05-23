@@ -13,7 +13,6 @@
   flex-direction: column;
   justify-content: center;
   padding: 80px 64px 80px 48px;
-  position: relative;
   z-index: 2;
 }
 
@@ -46,7 +45,7 @@
 .hero-h1 {
   font-family: var(--font-display);
   font-size: clamp(3rem, 5.8vw, 6.5rem);
-  line-height: 0.95;
+  line-height: 0.9;
   letter-spacing: 0.02em;
   color: var(--ink);
 }
