@@ -1,0 +1,164 @@
+.services-section {
+  padding: 100px 48px;
+  background-color: var(--white); 
+}
+
+.services-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 72px;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background-color: var(--rust);
+}
+
+.section-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4vw, 5rem);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--ink);
+}
+
+.section-h2 .serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--rust);
+}
+
+.services-intro {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+  padding-top: 12px;
+}
+
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px; /* Controls border thickness between elements */
+  background: rgba(15, 13, 10, 0.08); /* The background color peeks through the gap to act as borders */
+  border: 1px solid rgba(15, 13, 10, 0.08); /*background controls only inner lines,for outer lines we need border*/
+}
+
+.service-card {
+  background-color: var(--white);
+  padding: 40px 36px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+.svc-num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin-bottom: 32px;
+  transition: color 0.3s ease;
+}
+
+.svc-icon {
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(15, 13, 10, 0.15);
+  border-radius: 4px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.svc-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--rust);
+}
+
+.svc-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.svc-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.svc-arrow {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  opacity: 0;
+  transform: translate(-8px, 8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: var(--rust);
+  font-size: 1.4rem;
+}
+
+/* HOVER INVERSION EFFECTS */
+.service-card:hover {
+  background-color: var(--ink);
+}
+
+.service-card:hover .svc-num,
+.service-card:hover .svc-title,
+.service-card:hover .svc-desc {
+  color: var(--paper); 
+}
+
+.service-card:hover .svc-icon {
+  border-color: rgba(245, 240, 232, 0.15);
+}
+
+.service-card:hover .svc-arrow {
+  opacity: 1;
+  transform: translate(0, 0); 
+}
+
+/* Responsiveness  */
+@media (max-width: 900px) {
+  .services-head {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+  
+  .services-section {
+    padding: 72px 24px;
+  }
+}
