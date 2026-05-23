@@ -1,4 +1,4 @@
-.main-header{
+.desktop-header{
     position: fixed;
     top: 0;
     left: 0;
@@ -80,4 +80,58 @@
 /* Prevents the underline animation from hitting the button text */
 .nav-links .nav-btn::after {
   display: none;
+}
+
+/* For Mobile  */
+
+.bottom-tab-bar {
+  display: none; 
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  padding: 6px 12px;
+  flex: 1;
+}
+
+.tab-item:hover {
+  color: var(--rust);
+}
+
+@media (max-width: 768px) {
+  /* Hide the desktop navbar */
+  .desktop-header {
+    display: none;
+  }
+  
+  /* Show and style the bottom tab bar */
+  .bottom-tab-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background-color: rgba(250, 248, 244, 0.97);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(15, 13, 10, 0.08);
+    z-index: 100;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Prevent the fixed bar from covering page content */
+  body {
+    padding-bottom: 64px;
+  }
 }

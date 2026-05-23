@@ -236,7 +236,7 @@
 }
 
 /* ── RESPONSIVE DESIGN BREAKPOINTS ── */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .hero-section {
     grid-template-columns: 1fr; /* Stack layout down to a single vertical column */
   }
