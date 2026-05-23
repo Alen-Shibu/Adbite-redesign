@@ -1,0 +1,53 @@
+.ticker-wrapper {
+  width: 100%;
+  overflow: hidden; /* Vital: Clips off the text that extends beyond the screen edges */
+  background-color: var(--ink); 
+  border-top: 1px solid var(--muted);
+  border-bottom: 1px solid var(--muted);
+  padding: 14px 0;
+  display: flex;
+  user-select: none;
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  /* Calls our infinite loop animation smoothly */
+  animation: scrollMarquee 25s linear infinite; 
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%; /* Forces each group to take up at least full screen width */
+}
+
+.ticker-item {
+  font-family: var(--font-display);
+  font-size: clamp(0.5rem, 0.8rem, 2.2rem);
+  text-transform: uppercase;
+  color: rgba(245, 240, 232, .5);
+  letter-spacing: 0.12em;
+  padding: 0 20px;
+  font-weight: 800;
+}
+
+.ticker-dot {
+  color: var(--rust); 
+  font-size: 1.8rem;
+}
+
+ /* Inifnity Scroll */
+
+ @keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Moving it by exactly -50% shifts the first group entirely out of view,
+       snapping the second group to the starting line undetected. */
+    transform: translateX(-50%); 
+  }
+}
