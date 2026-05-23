@@ -28,3 +28,7 @@ body {
    min-height: 100vh;           /* Prevents horizontal scrolling bugs */
   -webkit-font-smoothing: antialiased; /* Makes fonts look crisp */
 }
+
+html{
+  scroll-behavior: smooth;
+}
