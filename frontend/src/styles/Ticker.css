@@ -21,7 +21,6 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  justify-content: space-around;
 }
 
 .ticker-item {
