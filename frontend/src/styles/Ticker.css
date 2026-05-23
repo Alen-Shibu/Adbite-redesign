@@ -14,14 +14,14 @@
   width: max-content;
   white-space: nowrap;
   /* Calls our infinite loop animation smoothly */
-  animation: scrollMarquee 25s linear infinite; 
+  animation: scrollMarquee 15s linear infinite; 
 }
 
 .ticker-group {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   justify-content: space-around;
-  min-width: 100%; /* Forces each group to take up at least full screen width */
 }
 
 .ticker-item {
@@ -30,7 +30,7 @@
   text-transform: uppercase;
   color: rgba(245, 240, 232, .5);
   letter-spacing: 0.12em;
-  padding: 0 20px;
+  padding: 0 3.6rem;
   font-weight: 800;
 }
 

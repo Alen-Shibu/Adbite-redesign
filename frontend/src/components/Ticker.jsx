@@ -9,7 +9,7 @@ function Ticker() {
         "Salons", 
         "Clinics", 
         "High Impact", 
-        "Hyper Local"
+        "Hyper Local",
     ];
   return (
     <div className='ticker-wrapper'>
@@ -20,7 +20,7 @@ function Ticker() {
                     words.map((word,idx)=> (
                         <React.Fragment key={`first-${idx}`}>
                             <span className='ticker-item'>{word}</span>
-                            <span className='ticker-dot'>•</span>
+                            <span className='ticker-dot'>✦</span>
                         </React.Fragment>
                     ))
                 }
