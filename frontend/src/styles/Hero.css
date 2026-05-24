@@ -86,7 +86,7 @@
   cursor: pointer;
   border-radius: 2px;
   text-decoration: none;
-  transition: background-color 0.25s, transform 0.2s;
+  transition: background-color 0.5s, transform 0.4s;
 }
 
 .btn-primary:hover {
@@ -247,5 +247,11 @@
   
   .hero-right {
     min-height: 360px;
+  }
+}
+
+@media(max-width: 1044px){
+  .btn-primary ,.btn-ghost {
+    font-size: 0.66rem;
   }
 }

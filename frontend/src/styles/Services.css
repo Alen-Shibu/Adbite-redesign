@@ -57,7 +57,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2px; /* Controls border thickness between elements */
-  background: rgba(15, 13, 10, 0.08); /* The background color peeks through the gap to act as borders */
+  background: rgba(10, 15, 11, 0.08); /* The background color peeks through the gap to act as borders */
   border: 1px solid rgba(15, 13, 10, 0.08); /*background controls only inner lines,for outer lines we need border*/
 }
 

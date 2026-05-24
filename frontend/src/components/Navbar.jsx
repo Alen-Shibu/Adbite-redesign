@@ -5,11 +5,11 @@ const Navbar = () => {
   return (
     <header className="main-header">
         <nav className='desktop-header'>
-            {/* Right side logo */}
+            {/* Left side logo */}
             <a href="/" className='logo'>
                 AD<span>BITE</span>
             </a>
-        {/* Left side navigation  */}
+        {/* Right side navigation  */}
             <ul className='nav-links'>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#locations">Location</a></li>
