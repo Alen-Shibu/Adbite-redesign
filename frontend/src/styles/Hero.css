@@ -248,10 +248,23 @@
   .hero-right {
     min-height: 360px;
   }
+
+  .hero-section{
+    padding: 0;
+  }
 }
 
 @media(max-width: 1044px){
   .btn-primary ,.btn-ghost {
     font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-right{
+    display: none;
+  }
+  .hero-section{
+    min-height: 0;
   }
 }
