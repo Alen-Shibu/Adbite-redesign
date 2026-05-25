@@ -1,4 +1,3 @@
-/* 1. DEFINE THE DESIGN TOKENS */
 :root {
   --ink:   #0f0d0a;       /* Deep primary dark */
   --paper: #f5f0e8;       /* Warm background */
@@ -12,21 +11,18 @@
   --font-body: 'DM Sans', sans-serif;
 }
 
-/* 2. THE GLOBAL RESET */
-/* Strips away default browser margins/paddings so they don't mess up our layout */
 *{
  margin: 0;
  padding: 0;
  box-sizing: border-box;
 }
 
-/* 3. STYLING THE CANVAS */
 body {
-  background-color: var(--paper); /* Uses our global warm background token */
-  color: var(--ink);              /* Uses our global deep dark text token */
-  font-family: var(--font-body);  /* Sets default text to DM Sans */
-   min-height: 100vh;           /* Prevents horizontal scrolling bugs */
-  -webkit-font-smoothing: antialiased; /* Makes fonts look crisp */
+  background-color: var(--paper); 
+  color: var(--ink);              
+  font-family: var(--font-body);  
+   min-height: 100vh;           
+  -webkit-font-smoothing: antialiased; 
 }
 
 html{

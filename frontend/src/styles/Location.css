@@ -1,0 +1,252 @@
+
+.locations-section {
+  background-color: var(--ink); /* Deep dark background matching the site theme */
+  color: var(--paper);
+  padding: 100px 48px;
+}
+
+.locations-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr; 
+  gap: 56px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.locations-left-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.locations-header-area {
+  margin-bottom: 40px;
+}
+
+.locations-section .section-label {
+  color: var(--rust);
+}
+
+.locations-section .section-label::before {
+  background-color: var(--rust);
+}
+
+.locations-section .section-h2 {
+  color: var(--paper);
+}
+
+.district-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+/* District Accordion  */
+.district-accordion-item {
+  background: #24211c;
+  border: 1px solid rgba(245, 240, 232, 0.08);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Styled border & shadow when the district item is active/expanded */
+.district-accordion-item.active-district {
+  border-color: var(--rust);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.district-accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.25s ease, padding-left 0.25s ease;
+}
+
+.district-accordion-header:hover {
+  background-color: rgba(245, 240, 232, 0.02);
+  padding-left: 28px;
+}
+
+.district-header-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  transition: color 0.25s ease;
+}
+
+.district-accordion-header:hover h3,
+.active-district .district-header-text h3 {
+  color: var(--gold);
+}
+
+.district-header-text p {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(245, 240, 232, 0.45);
+  margin-top: 4px;
+}
+
+.district-arrow-icon {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--rust);
+  font-weight: 300;
+  transition: color 0.25s ease;
+}
+
+.district-accordion-header:hover .district-arrow-icon {
+  color: var(--gold);
+}
+
+
+/* Venue list  */
+.district-accordion-content {
+  padding: 8px 24px 24px 24px;
+  background: #0f0d0a;
+  border-top: 1px solid rgba(245, 240, 232, 0.04);
+}
+
+.backend-venue-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.backend-venue-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 8px;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.03);
+  cursor: pointer;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+.backend-venue-item:last-child {
+  border-bottom: none;
+}
+
+.backend-venue-item:hover {
+  background-color: rgba(245, 240, 232, 0.02);
+  padding-left: 14px;
+}
+
+.backend-venue-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--rust);
+  margin-right: 14px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.backend-venue-item:hover .backend-venue-dot {
+  background-color: var(--gold);
+}
+
+.backend-venue-name {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: rgba(245, 240, 232, 0.75);
+  transition: color 0.2s ease;
+}
+
+.backend-venue-item:hover .backend-venue-name {
+  color: var(--gold);
+}
+
+.empty-district-text {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(245, 240, 232, 0.35);
+  padding: 12px 8px 0 8px;
+  font-style: italic;
+}
+
+
+.locations-right-panel {
+  position: sticky;
+  top: 120px;
+  height: 560px;
+}
+
+.map-blueprint-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #09151e, #112532, #183345); /* High-fidelity blueprint gradient box */
+  border: 1px dashed rgba(0, 191, 255, 0.35);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.blueprint-placeholder-content h3 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  color: #00bfff;
+  font-weight: 400;
+  margin: 16px 0 8px 0;
+}
+
+.blueprint-placeholder-content p {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: rgba(245, 240, 232, 0.5);
+  max-width: 340px;
+  line-height: 1.6;
+}
+
+.blueprint-pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #00bfff;
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.6);
+  animation: mapBluePulse 2s infinite;
+}
+
+@keyframes mapBluePulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.6); }
+  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(0, 191, 255, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); }
+}
+
+
+
+.loading-state {
+  text-align: center;
+  padding: 120px;
+  color: var(--rust);
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+}
+
+
+/* Responsiveness  */
+@media (max-width: 900px) {
+  .locations-section {
+    padding: 72px 24px;
+  }
+  
+  .locations-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .locations-right-panel {
+    position: relative;
+    top: auto;
+    height: 380px;
+  }
+}
