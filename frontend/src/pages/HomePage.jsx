@@ -5,6 +5,7 @@ import Ticker from '../components/Ticker'
 import Services from '../sections/Services'
 import Footer from '../components/Footer'
 import Contact from '../sections/Contact'
+import Locations from '../sections/Location'
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <HeroSection />
       <Ticker />
       <Services />
+      <Locations />
       <Contact />
       <Footer />
     </div>

@@ -90,7 +90,7 @@ const Services = () => {
         <div className="services-grid">
             {
                 servicesData.map((svc,idx)=> (
-                    <div className="service-card">
+                    <div className="service-card" key={idx}>
                         <div className="svc-num">{svc.num}</div>
                         <div className="svc-icon">{svc.icon}</div>
                         <h3 className="svc-title">{svc.title}</h3>
