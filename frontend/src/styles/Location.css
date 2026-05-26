@@ -177,49 +177,92 @@
   height: 560px;
 }
 
-.map-blueprint-placeholder {
+/* ==========================================================================
+   REAL LEAFLET MAP ELEMENT WRAPPERS
+   ========================================================================== */
+.map-leaflet-wrapper {
+  position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #09151e, #112532, #183345); /* High-fidelity blueprint gradient box */
-  border: 1px dashed rgba(0, 191, 255, 0.35);
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(245, 240, 232, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.blueprint-placeholder-content h3 {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: #00bfff;
-  font-weight: 400;
-  margin: 16px 0 8px 0;
+.actual-leaflet-map-element {
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Keeps tiles behind the HUD text card */
 }
 
-.blueprint-placeholder-content p {
+/* Fixes Leaflet's built-in background colors to stay dark during layer transitions */
+.leaflet-container {
+  background: #0f0d0a !important;
+}
+
+/* Target and style the venue row item when it has been selected */
+.backend-venue-item.selected-venue {
+  background-color: rgba(212, 169, 74, 0.08);
+  padding-left: 14px;
+  border-left: 2px solid var(--gold);
+}
+
+.backend-venue-item.selected-venue .backend-venue-name {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.backend-venue-item.selected-venue .backend-venue-dot {
+  background-color: var(--gold);
+}
+
+/* --- Floating Glass HUD Interface Over the Map --- */
+.map-hud-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000; /* Forces it over the map layer graphic */
+  background: rgba(15, 13, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 240, 232, 0.12);
+  border-radius: 6px;
+  padding: 16px 20px;
+  max-width: 280px;
+  pointer-events: none; /* Mouse clicks pass clean through to the map underneath */
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.map-hud-overlay.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hud-label {
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: rgba(245, 240, 232, 0.5);
-  max-width: 340px;
-  line-height: 1.6;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 6px;
 }
 
-.blueprint-pulse-dot {
-  width: 10px;
-  height: 10px;
-  background-color: #00bfff;
-  border-radius: 50%;
-  margin: 0 auto;
-  box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.6);
-  animation: mapBluePulse 2s infinite;
+.hud-venue-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--paper);
+  line-height: 1.3;
 }
 
-@keyframes mapBluePulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0.6); }
-  70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(0, 191, 255, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 191, 255, 0); }
+.hud-coords {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.4);
+  margin-top: 6px;
 }
 
 
