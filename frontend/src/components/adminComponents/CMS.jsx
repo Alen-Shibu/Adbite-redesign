@@ -5,6 +5,7 @@ import axios from '../../api/axios.js'
 const CMS = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const [districts, setDistricts] = useState([])
+  const [search, setSearch] = useState('')
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -26,16 +27,24 @@ const CMS = () => {
       setOpenIndex(index)
     }
   }
+
+  const filterDistricts = districts.filter((district)=> (
+    district.district.toLowerCase().includes(search.toLowerCase())
+  ))
+
   return (
     <main>
-
       <h2 className={styles.page_header}>Locations</h2>
       <p className={styles.page_sub}>Manage districts and their mapped venues.</p>
 
       <div className={styles.page_top}>
         <div className={styles.search_bar}> 
           <svg className={styles.search_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" placeholder='Search' className={styles.search_input} />
+          <input type="text" 
+          placeholder='Search' 
+          value={search}
+          onChange={(e)=> setSearch(e.target.value)}
+          className={styles.search_input} />
         </div>
           <button className={styles.add_btn}>
           <svg className={styles.plus_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
@@ -55,7 +64,7 @@ const CMS = () => {
             </thead>
 
       {
-        districts.map((disctrict,idx)=>(
+        filterDistricts.map((disctrict,idx)=>(
           <React.Fragment key={idx}>
             <tbody>
               <tr>
