@@ -82,17 +82,18 @@ const CMS = () => {
               <tr className={`${styles.venues_row} ${openIndex===idx && styles.active}`}>
                   <td colSpan={5}> 
                     <div className={styles.venue_label}>Venues in {disctrict.district}</div>
+                    <div className={styles.venue_pills} >
                     {
                       disctrict.venues.map((venue,idx)=>(
-                        <div className={styles.venue_pills} key={idx}>
-                          <div className={styles.venue_pill}>
+                        
+                          <div className={styles.venue_pill} key={idx}>
                             <span className={styles.venue_dot}></span>
                             <span>{venue.name}</span>
                             <span>{venue.lat},{venue.lng}</span>
                           </div>
-                        </div>
                       ))
                     }
+                    </div>
                   </td>
               </tr>
             
