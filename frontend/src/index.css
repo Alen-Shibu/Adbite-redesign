@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&display=swap');
+
 :root {
   --ink:   #0f0d0a;       /* Deep primary dark */
   --paper: #f5f0e8;       /* Warm background */
@@ -5,6 +7,8 @@
   --gold:  #d4a94a;       /* Secondary accent */
   --muted: #8a8278;       /* Subtle text body */
   --white: #faf8f4;       /* Card backgrounds */
+  --card: #24211c;
+  --border: rgba(245, 240, 232, .1);
   
   --font-display: 'Bebas Neue', sans-serif;
   --font-serif: 'DM Serif Display', serif;
