@@ -43,6 +43,28 @@ const CMS = () => {
             <button className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
           </td>
         </tr>
+        <tr className={styles.venues_row}>
+            <td colSpan={5}> 
+              <div className={styles.venue_label}>Venues in Ernakulam</div>
+              <div className={styles.venue_pills}>
+                <div className={styles.venue_pill}>
+                  <span className={styles.venue_dot}></span>
+                  <span>Gold's Gym Kakkanad</span>
+                  <span>10.0130°N, 76.3490°E</span>
+                </div>
+                <div className={styles.venue_pill}>
+                  <span className={styles.venue_dot}></span>
+                  <span>Gold's Gym Kakkanad</span>
+                  <span>10.0130°N, 76.3490°E</span>
+                </div>
+                <div className={styles.venue_pill}>
+                  <span className={styles.venue_dot}></span>
+                  <span>Gold's Gym Kakkanad</span>
+                  <span>10.0130°N, 76.3490°E</span>
+                </div>
+              </div>
+            </td>
+        </tr>
       </tbody>
     </table>
     </div>

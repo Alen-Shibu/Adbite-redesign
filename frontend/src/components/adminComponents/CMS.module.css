@@ -218,3 +218,45 @@ tbody td .btn_icon{
     border-radius: 3px;
     transition: transform .35s;
 }
+
+.venues_row{
+    display: table-row;
+    background-color: #2c2a24;
+}
+.venues_row td{
+    padding: 12px 16px 16px 42px;
+}
+
+.venue_label{
+    font-size: .56rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+.venue_pills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.venue_pill{
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--card);
+    gap: 7px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 11px;
+    font-size: .76rem;
+    color: rgba(245, 240, 232, .65);
+}
+
+.venue_pill .venue_dot{
+    width: 5px;
+    height: 5px;
+    background-color: var(--rust);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
