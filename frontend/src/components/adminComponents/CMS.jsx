@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './CMS.module.css'
 
 const CMS = () => {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggleAccordion = (index) =>{
+    if(openIndex===index){
+      setOpenIndex(null);
+    }else{
+      setOpenIndex(index)
+    }
+  }
   return (
     <main>
 
@@ -32,7 +41,7 @@ const CMS = () => {
 
       <tbody>
         <tr>
-          <td><button className={`${styles.btn_ghost} ${styles.btn_sm}`}><svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <td><button  onClick={()=> toggleAccordion(0)} className={`${styles.btn_ghost} ${styles.btn_sm} ${openIndex===0 && styles.rotate}`}><svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg></button></td>
           <td className={styles.td_name}>Ernakulam</td>
@@ -43,7 +52,7 @@ const CMS = () => {
             <button className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
           </td>
         </tr>
-        <tr className={styles.venues_row}>
+        <tr className={`${styles.venues_row} ${openIndex===0 && styles.active}`}>
             <td colSpan={5}> 
               <div className={styles.venue_label}>Venues in Ernakulam</div>
               <div className={styles.venue_pills}>
@@ -65,6 +74,7 @@ const CMS = () => {
               </div>
             </td>
         </tr>
+       
       </tbody>
     </table>
     </div>
