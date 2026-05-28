@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styles from './CMS.module.css'
 import axios from '../../api/axios.js'
+import Modal from './modals/Modal.jsx'
+
 
 const CMS = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
+  const [modal, setModal] = useState(true)
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -20,6 +23,19 @@ const CMS = () => {
   }
   ,[])
 
+  useEffect(()=>{
+    if(modal){
+      document.body.classList.add('active-modal')
+    }
+    else{
+      document.body.classList.remove('active-modal')
+    }
+
+    return () => {
+      document.body.classList.remove('active-modal')
+    }
+  },[])
+
   const toggleAccordion = (index) =>{
     if(openIndex===index){
       setOpenIndex(null);
@@ -28,11 +44,17 @@ const CMS = () => {
     }
   }
 
+  const toggleModal = () => {
+    setModal(!modal)
+  }
+
   const filterDistricts = districts.filter((district)=> (
     district.district.toLowerCase().includes(search.toLowerCase())
   ))
 
   return (
+    <>
+    {modal && <Modal toggleModal={toggleModal} />}
     <main>
       <h2 className={styles.page_header}>Locations</h2>
       <p className={styles.page_sub}>Manage districts and their mapped venues.</p>
@@ -46,9 +68,10 @@ const CMS = () => {
           onChange={(e)=> setSearch(e.target.value)}
           className={styles.search_input} />
         </div>
-          <button className={styles.add_btn}>
+          <button className={styles.add_btn} onClick={toggleModal}>
           <svg className={styles.plus_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-            Add District</button>
+            Add District
+          </button>
       </div>
 
       <div className={styles.table_wrap}>
@@ -105,6 +128,7 @@ const CMS = () => {
           </div>
 
     </main>
+    </>
   )
 }
 

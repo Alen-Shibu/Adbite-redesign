@@ -3,6 +3,7 @@ main{
     background: rgb(4, 3, 3);
     margin: 0 auto;
     padding: 28px 16px 80px;
+    padding-top: 5rem;
 }
 
 .page_header{
