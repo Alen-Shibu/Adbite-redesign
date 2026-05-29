@@ -33,7 +33,7 @@
     height: clamp(60vh,80vh,80vh);
     overflow-y: auto;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, .5);
-    padding: 0px 20px 8px;
+    padding: 0 20px 0;
 }
 
 .modal_contents::-webkit-scrollbar {
@@ -209,4 +209,64 @@
 .venue_entry input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.modal_footer{
+    padding: 12px 20px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+    background: var(--card);
+}
+
+.modal_footer button{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: .73rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: transform .15s, background .2s;
+}
+
+.modal_footer button:hover{
+    transform: translateY(-1px);
+}
+
+.btn_ghost{
+    background: transparent;
+    color: rgba(245, 240, 232, .5);
+    border: 1px solid var(--border);
+}
+
+.btn_ghost:hover{
+    color: var(--paper);
+    background: rgba(245, 240, 232, .05);
+}
+
+.btn_primary{
+    background: var(--rust);
+    color: var(--white);
+}
+
+.btn_primary:hover{
+    background: #a83a13;
+}
+
+.btn_primary svg{
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    flex-shrink: 0;
 }

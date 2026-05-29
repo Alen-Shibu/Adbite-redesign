@@ -4,19 +4,20 @@ import styles from './Modal.module.css'
 const Modal = ({toggleModal}) => {
   const [venues, setVenues] = useState([
     {
-      name:'',
-      latitude:'',
-      longitude:''
+      id: crypto.randomUUID(),
+      name :'',
+      latitude :'',
+      longitude :''
     }
   ])
 
   const addVenues = () => {
-    setVenues([...venues,{name:'',latitude:'',longitude:''}])
+    setVenues([...venues,{id:crypto.randomUUID(),name:'',latitude:'',longitude:''}])
   }
 
-  const deleteVenues = (indexToDelete) => {
-    const updatedVenues = venues.filter((venue,idx)=>{
-      return idx!==indexToDelete;
+  const deleteVenues = (idToDelete) => {
+    const updatedVenues = venues.filter((venue)=>{
+      return venue.id!==idToDelete;
     })
 
     setVenues(updatedVenues)
@@ -64,10 +65,10 @@ const Modal = ({toggleModal}) => {
               <div className={styles.venue_list}>
                 {
                   venues.map((venue,idx)=>(
-                    <div className={styles.venue_entry} key={idx}>
+                    <div className={styles.venue_entry} key={venue.id}>
                       <div className={styles.venue_entry_top}>
                         <span>Venue {idx+1}</span>
-                        <button type="button" onClick={()=> deleteVenues(idx)}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+                        <button type="button" onClick={()=> deleteVenues(venue.id)}><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
                       </div>
                       <div className={styles.form_group}>
                         <input type="text" placeholder='venue name'/>
@@ -80,6 +81,14 @@ const Modal = ({toggleModal}) => {
                   ))
                 }
               </div>
+            </div>
+
+            <div className={styles.modal_footer}>
+              <button onClick={toggleModal} className={styles.btn_ghost}>Cancel</button>
+              <button className={styles.btn_primary}>
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Save
+              </button>
             </div>
         </div>
     </div>
