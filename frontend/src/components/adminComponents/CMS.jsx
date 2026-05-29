@@ -8,7 +8,7 @@ const CMS = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
-  const [modal, setModal] = useState(true)
+  const [modal, setModal] = useState(false)
 
   useEffect(()=>{
     const getLocations = async()=>{

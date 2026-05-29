@@ -15,7 +15,7 @@ const Contact = () => {
 
     const handleChange = (e) => {
         const {name,value} = e.target;
-        setFormData(prev => ({...prev,[name]:value})) // [name] is computed property name -> use the value inside that variable
+        setFormData(prev => ({...prev,[name]:value})) 
     }
 
     const handleSubmit = (e) => {

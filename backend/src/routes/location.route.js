@@ -11,7 +11,7 @@ const router = express.Router();
 
 router.route('/')
   .get(getLocations)
-  .post(protect, createLocation);
+  .post(createLocation);
 
 router.route('/:id')
   .put(protect, updateLocation)
