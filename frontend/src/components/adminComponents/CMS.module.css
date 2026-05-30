@@ -1,5 +1,7 @@
 main{
-    max-width: 60vw;
+    width: 80vw;
+    min-width: 700px;
+    max-width: 1200px;
     background: rgb(4, 3, 3);
     margin: 0 auto;
     padding: 28px 16px 80px;
