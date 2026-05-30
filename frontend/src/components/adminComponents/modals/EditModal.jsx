@@ -91,8 +91,8 @@ const Modal = ({id,toggleEditModal}) => {
         <div className={styles.modal_contents}> 
             <div className={styles.modal_header}>
               <div>
-                <h5>New Entry</h5>
-                <h2>Add District</h2>
+                <h5>Editing</h5>
+                <h2>{id.district}</h2>
               </div>
               <button type='button' onClick={toggleEditModal}>
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
