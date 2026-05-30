@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './Modal.module.css'
+import styles from './CreateModal.module.css'
 import axios from '../../../api/axios.js'
 import toast from 'react-hot-toast';
 
@@ -70,15 +70,9 @@ const Modal = ({toggleModal}) => {
 
   const deleteVenues = (idToDelete) => {
 
-    const updatedVenues = venues.filter((venue)=>{
-      return venue.id!==idToDelete;
-    })
-
     const updatedFormVenues = formData.venues.filter((venue)=>{
       return venue.id!==idToDelete;
     })
-
-    setVenues(updatedVenues)
 
     setFormData(prev => ({
       ...prev,

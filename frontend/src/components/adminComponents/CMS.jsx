@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styles from './CMS.module.css'
 import axios from '../../api/axios.js'
-import Modal from './modals/Modal.jsx'
+import CreateModal from './modals/CreateModel.jsx'
 
 
 const CMS = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
-  const [modal, setModal] = useState(false)
+  const [createModal, setCreateModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(true)
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -24,7 +25,7 @@ const CMS = () => {
   ,[])
 
   useEffect(()=>{
-    if(modal){
+    if(createModal){
       document.body.classList.add('active-modal')
     }
     else{
@@ -45,7 +46,7 @@ const CMS = () => {
   }
 
   const toggleModal = () => {
-    setModal(!modal)
+    setCreateModal(!createModal)
   }
 
   const filterDistricts = districts.filter((district)=> (
@@ -54,7 +55,7 @@ const CMS = () => {
 
   return (
     <div className={styles.admin_body}>
-    {modal && <Modal toggleModal={toggleModal} />}
+    {createModal && <CreateModal toggleModal={toggleModal} />}
     <main>
       <h2 className={styles.page_header}>Locations</h2>
       <p className={styles.page_sub}>Manage districts and their mapped venues.</p>
@@ -74,6 +75,7 @@ const CMS = () => {
           </button>
       </div>
 
+      {/* Desktop View */}
       <div className={styles.table_wrap}>
           <table>
             <thead>
@@ -85,15 +87,17 @@ const CMS = () => {
                 <th></th>
               </tr>
             </thead>
-
             <tbody>
       {
         filterDistricts.map((disctrict,idx)=>(
           <React.Fragment key={idx}>
               <tr>
-                <td><button  onClick={()=> toggleAccordion(idx)} className={`${styles.btn_ghost} ${styles.btn_sm} ${openIndex===idx && styles.rotate}`}><svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <td>
+                  <button  onClick={()=> toggleAccordion(idx)} className={`${styles.btn_ghost} ${styles.btn_sm} ${openIndex===idx && styles.rotate}`}><svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
-                </svg></button></td>
+                </svg>
+                </button>
+                </td>
                 <td className={styles.td_name}>{disctrict.district}</td>
                 <td className={styles.td_description}>{disctrict.description}</td>
                 <td className={styles.venue}><span className={`${styles.badge} ${styles.badge_rust}`}>{disctrict.venues.length}</span></td>
@@ -125,7 +129,53 @@ const CMS = () => {
       }
       </tbody>
           </table>
-          </div>
+      </div>
+
+      {/* Mobile View  */}
+      <div className={styles.cards_list}>
+        <div className={styles.card}>
+
+            {
+              filterDistricts.map((district,districtIndex)=> (
+              <div key={districtIndex} className={styles.district_card}>
+              <div onClick={()=> toggleAccordion(districtIndex)} className={styles.district_card_header}>
+                <div className={styles.district_card_left}>
+                  <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>
+                    <svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  </button>
+                  <div className={styles.card_details}>
+                    <h2>{district.district}</h2>
+                    <p>{district.description}</p>
+                  </div>
+                  <span className={`${styles.badge} ${styles.badge_rust}`}>{district.venues.length}</span>
+                </div>
+                <div className={styles.district_card_actions}>
+                    <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <button className={`${styles.btn_danger} ${styles.btn_sm}`}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
+                    </button>
+                </div>
+              </div>
+
+              {
+                district.venues.map((venue,idx)=>(
+                <div key={idx} className={`${styles.district_card_body} ${openIndex===districtIndex && styles.active_venue}`}> 
+                <h2>Venues</h2>
+                <div className={styles.card_venue_item}>
+                  <span className={styles.venue_dot}></span>
+                  <span>{venue.name}</span>
+                  <span className={styles.venue_coords}>{venue.lat},{venue.lng}</span>
+                </div>
+              </div>
+                ))
+              }
+            </div>
+              ))
+            }
+        </div>
+      </div>
 
     </main>
     </div>

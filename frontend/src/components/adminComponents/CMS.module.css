@@ -1,14 +1,16 @@
+.admin_body{
+    overflow: hidden;
+}
+
 main{
     width: 80vw;
-    min-width: 700px;
-    max-width: 1200px;
     background: rgb(4, 3, 3);
     margin: 0 auto;
     padding: 28px 16px 80px;
     padding-top: 5rem;
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: 100vh;
 }
 
 .table_wrap{
@@ -145,7 +147,7 @@ tbody td{
     vertical-align: middle;
 }
 
-tbody td .btn_icon{
+.btn_icon{
     width: 12px;
     height: 12px;
     stroke: currentColor;
@@ -265,7 +267,7 @@ tbody td .btn_icon{
     color: rgba(245, 240, 232, .65);
 }
 
-.venue_pill .venue_dot{
+.venue_dot{
     width: 5px;
     height: 5px;
     background-color: var(--rust);
@@ -279,4 +281,120 @@ tbody td .btn_icon{
 
 .rotate{
     transform: rotate(90deg);
+}
+
+.cards_list{
+    background: var(--ink);
+    display: none;
+    flex-direction: column;
+    max-height: 55vh;
+}
+.card::-webkit-scrollbar{
+    display: none;
+}
+
+.district_card{
+    background:var(--card);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin-bottom: 0.9rem;
+}
+.card{
+    overflow-y: auto;
+    flex-direction: 1;
+}
+
+.district_card_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: background .15s;
+}
+
+.district_card_left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+.card_details{
+    flex: 1;
+    min-width: 0;
+}
+.card_details h2{
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--paper);
+}
+.card_details p{
+    font-size: .72rem;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+}
+
+.district_card_actions{
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.district_card_actions svg{
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    flex-shrink: 0;
+}
+
+.district_card_body{
+    display: none;
+    border-top: 1px solid var(--border);
+    background: #0f0d0a;
+    padding: 14px 16px;
+}
+
+.district_card_body h2{
+    font-size: .56rem;
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    color: var(--muted);
+    margin-bottom: 10px;
+}
+
+
+.card_venue_item{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(245, 240, 232, .04);
+    font-size: .8rem;
+    color: rgba(245, 240, 232, .7);
+}
+
+.venue_coords{
+    font-size: .62rem;
+    color: var(--muted);
+    margin-left: auto;
+}
+
+@media (max-width: 870px) {
+    .table_wrap{
+        display: none;
+    }
+    .cards_list {
+        display: flex;
+    }
+}
+
+.active_venue{
+    display: block;
 }

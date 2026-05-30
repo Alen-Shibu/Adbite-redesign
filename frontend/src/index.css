@@ -36,3 +36,12 @@ html{
 .active-modal{
   overflow-y: hidden;
 }
+
+@media (max-width:768px){
+    /* Prevent the fixed bar from covering page content */
+  .homepage {
+    padding-bottom: 64px;
+  }
+}
+
+/* Remember to make className homePage when making homepage in app.jsx */

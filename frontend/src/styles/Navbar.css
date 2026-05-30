@@ -129,9 +129,4 @@
     justify-content: space-around;
     align-items: center;
   }
-
-  /* Prevent the fixed bar from covering page content */
-  body {
-    padding-bottom: 64px;
-  }
 }
