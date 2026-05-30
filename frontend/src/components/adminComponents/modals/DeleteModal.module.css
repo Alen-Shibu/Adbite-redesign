@@ -1,0 +1,144 @@
+.blurred_background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(4px);
+    pointer-events: all;
+    z-index: 100;
+    background: rgba(0, 0, 0, .72);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete_modal{
+    background: var(--card);
+    border: 1px solid rgba(245, 240, 232, .14);
+    max-width: 400px;
+    width: 100%;
+    border-radius: 10px;
+}
+.delete_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 20px 14px;
+}
+.delete_header h5{
+    font-size: .57rem;
+    text-transform: uppercase;
+    letter-spacing: .2em;
+    color: var(--rust);
+    margin-bottom: 2px;
+}
+.delete_header h1{
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--paper);
+}
+
+.delete_header button{
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.delete_header svg{
+    width: 16px;
+    height: 16px;
+    stroke: var(--white);
+    display: block;
+}
+.delete_middle{
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.delete_icon{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(201, 74, 43, .12);
+    border: 1px solid rgba(201, 74, 43, .25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    
+}
+
+.delete_icon svg{
+    width: 19px;
+    height: 19px;
+    stroke: var(--rust);
+}
+
+.delete_title{
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--paper);
+    margin-bottom: 7px;
+}
+.delete_middle p{
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+.delete_middle span{
+    color: var(--paper);
+    font-weight: 500;
+}
+
+.delete_footer{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 20px 20px;
+}
+
+.delete_footer button{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: .73rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: transform .15s, background .2s;
+}
+.btn_ghost{
+    background: transparent;
+    color: rgba(245, 240, 232, .5);
+    border: 1px solid var(--border);
+}
+.btn_ghost:hover{
+    color: var(--paper);
+    background: rgba(245, 240, 232, .05);
+}
+
+.btn_danger{
+    background: rgba(201, 74, 43, .15);
+    color: var(--rust);
+    border: 1px solid rgba(201, 74, 43, .3);
+    border-radius: 3px;
+    transition: transform .35s;
+}
+.btn_danger:hover{
+    color: #d94a26;
+}
+.btn_danger svg{
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    flex-shrink: 0;
+}

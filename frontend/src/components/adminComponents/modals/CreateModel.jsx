@@ -3,7 +3,7 @@ import styles from './CreateModal.module.css'
 import axios from '../../../api/axios.js'
 import toast from 'react-hot-toast';
 
-const Modal = ({toggleModal}) => {
+const Modal = ({toggleCreateModal}) => {
 
   const [formData, setFormData] = useState({
     district:'',
@@ -82,14 +82,14 @@ const Modal = ({toggleModal}) => {
 
   return (
     <div className={styles.modal_container}>
-        <div className={styles.modal_overlay} onClick={toggleModal}></div>
+        <div className={styles.modal_overlay} onClick={toggleCreateModal}></div>
         <div className={styles.modal_contents}> 
             <div className={styles.modal_header}>
               <div>
                 <h5>New Entry</h5>
                 <h2>Add District</h2>
               </div>
-              <button type='button' onClick={toggleModal}>
+              <button type='button' onClick={toggleCreateModal}>
                 <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
               </button>
             </div>
@@ -168,7 +168,7 @@ const Modal = ({toggleModal}) => {
               </div>
 
               <div className={styles.modal_footer}>
-                <button type='button' onClick={toggleModal} className={styles.btn_ghost}>Cancel</button>
+                <button type='button' onClick={toggleCreateModal} className={styles.btn_ghost}>Cancel</button>
 
                 <button type='submit' className={styles.btn_primary}>
                   <svg viewBox="0 0 24 24" fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

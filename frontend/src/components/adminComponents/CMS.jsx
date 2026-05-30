@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './CMS.module.css'
 import axios from '../../api/axios.js'
 import CreateModal from './modals/CreateModel.jsx'
+import DeleteModal from './modals/DeleteModal.jsx'
 
 
 const CMS = () => {
@@ -9,7 +10,7 @@ const CMS = () => {
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
   const [createModal, setCreateModal] = useState(false)
-  const [deleteModal, setDeleteModal] = useState(true)
+  const [deleteModal, setDeleteModal] = useState(false)
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -45,8 +46,11 @@ const CMS = () => {
     }
   }
 
-  const toggleModal = () => {
+  const toggleCreateModal = () => {
     setCreateModal(!createModal)
+  }
+  const toggleDeleteModal = () => {
+    setDeleteModal(!deleteModal)
   }
 
   const filterDistricts = districts.filter((district)=> (
@@ -55,7 +59,7 @@ const CMS = () => {
 
   return (
     <div className={styles.admin_body}>
-    {createModal && <CreateModal toggleModal={toggleModal} />}
+    {createModal && <CreateModal toggleCreateModal={toggleCreateModal} />}
     <main>
       <h2 className={styles.page_header}>Locations</h2>
       <p className={styles.page_sub}>Manage districts and their mapped venues.</p>
@@ -69,7 +73,7 @@ const CMS = () => {
           onChange={(e)=> setSearch(e.target.value)}
           className={styles.search_input} />
         </div>
-          <button className={styles.add_btn} onClick={toggleModal}>
+          <button className={styles.add_btn} onClick={toggleCreateModal}>
           <svg className={styles.plus_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
             Add District
           </button>
@@ -103,7 +107,7 @@ const CMS = () => {
                 <td className={styles.venue}><span className={`${styles.badge} ${styles.badge_rust}`}>{disctrict.venues.length}</span></td>
                 <td className={styles.td_buttons}>
                   <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>Edit</button>
-                  <button className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
+                  <button onClick={toggleDeleteModal} className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
                 </td>
               </tr>
               <tr className={`${styles.venues_row} ${openIndex===idx && styles.active}`}>
