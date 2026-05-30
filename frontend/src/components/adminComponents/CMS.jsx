@@ -3,6 +3,7 @@ import styles from './CMS.module.css'
 import axios from '../../api/axios.js'
 import CreateModal from './modals/CreateModel.jsx'
 import DeleteModal from './modals/DeleteModal.jsx'
+import EditModal from './modals/EditModal.jsx'
 
 
 const CMS = () => {
@@ -57,6 +58,10 @@ const CMS = () => {
     setSelectedDistrict(district)
     setModal("delete")
   }
+  const toggleEditModal = (district) => {
+    setSelectedDistrict(district);
+    setModal("edit")
+  }
 
   const filterDistricts = districts.filter((district)=> (
     district.district.toLowerCase().includes(search.toLowerCase())
@@ -65,7 +70,8 @@ const CMS = () => {
   return (
     <>
     {modal==='create' && (<CreateModal toggleCreateModal={closeModal} />)}
-    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} id={selectedDistrict._id}/>)}
+    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} id={selectedDistrict}/>)}
+    {modal==='edit' && (<EditModal toggleEditModal={closeModal} id={selectedDistrict}/>)}
 
 
     <div className={styles.admin_body}>
@@ -115,7 +121,7 @@ const CMS = () => {
                 <td className={styles.td_description}>{district.description}</td>
                 <td className={styles.venue}><span className={`${styles.badge} ${styles.badge_rust}`}>{district.venues.length}</span></td>
                 <td className={styles.td_buttons}>
-                  <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>Edit</button>
+                  <button onClick={()=> toggleEditModal(district)} className={`${styles.btn_ghost} ${styles.btn_sm}`}>Edit</button>
                   <button onClick={()=> toggleDeleteModal(district)} className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
                 </td>
               </tr>
@@ -163,11 +169,11 @@ const CMS = () => {
                   <span className={`${styles.badge} ${styles.badge_rust}`}>{district.venues.length}</span>
                 </div>
                 <div className={styles.district_card_actions}>
-                    <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    <button onClick={()=> toggleEditModal(district)} className={`${styles.btn_ghost} ${styles.btn_sm}`}>
+                      <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     </button>
                     <button onClick={()=> toggleDeleteModal(district)} className={`${styles.btn_danger} ${styles.btn_sm}`}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
+                      <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
                     </button>
                 </div>
               </div>

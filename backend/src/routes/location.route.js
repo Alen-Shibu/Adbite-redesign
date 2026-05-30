@@ -14,7 +14,7 @@ router.route('/')
   .post(createLocation);
 
 router.route('/:id')
-  .put(protect, updateLocation)
+  .put( updateLocation)
   .delete(deleteLocation);
 
 export default router;
