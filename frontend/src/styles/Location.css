@@ -17,6 +17,7 @@
 .locations-left-panel {
   display: flex;
   flex-direction: column;
+  height: 560px;
 }
 
 .locations-header-area {
@@ -39,6 +40,8 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
+  flex:1;
+  overflow-y: auto;
 }
 
 
@@ -49,6 +52,11 @@
   border-radius: 6px;
   overflow: hidden;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  flex-shrink: 0;
+}
+
+.district-accordion-list::-webkit-scrollbar{
+  display: none;
 }
 
 /* Styled border & shadow when the district item is active/expanded */

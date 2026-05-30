@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <div><Toaster/></div>
-      <AdminPage />
+      <HomePage/>
     </div>
   )
 }
