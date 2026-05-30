@@ -1,9 +1,21 @@
 main{
-    max-width: 864px;
+    max-width: 60vw;
     background: rgb(4, 3, 3);
     margin: 0 auto;
     padding: 28px 16px 80px;
     padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.table_wrap{
+    flex: 1;
+    overflow-y: auto;
+}
+
+.table_wrap::-webkit-scrollbar{
+    display: none;
 }
 
 .page_header{
@@ -19,8 +31,6 @@ main{
     color: var(--muted);
     margin-bottom: 24px;
 }
-
-
 
 .page_top{
     display: flex;
@@ -96,14 +106,12 @@ main{
     flex-shrink: 0;
 }
 
-
-
 .table_wrap{
     background:var(--card);
     border-radius: 6px;
     border: 1px solid var(--border);
-    overflow: hidden;
 }
+
 table{
     width: 100%;
     border-collapse: collapse;

@@ -53,7 +53,7 @@ const CMS = () => {
   ))
 
   return (
-    <>
+    <div className={styles.admin_body}>
     {modal && <Modal toggleModal={toggleModal} />}
     <main>
       <h2 className={styles.page_header}>Locations</h2>
@@ -86,10 +86,10 @@ const CMS = () => {
               </tr>
             </thead>
 
+            <tbody>
       {
         filterDistricts.map((disctrict,idx)=>(
           <React.Fragment key={idx}>
-            <tbody>
               <tr>
                 <td><button  onClick={()=> toggleAccordion(idx)} className={`${styles.btn_ghost} ${styles.btn_sm} ${openIndex===idx && styles.rotate}`}><svg className={styles.btn_icon} viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="9 18 15 12 9 6"></polyline>
@@ -120,15 +120,15 @@ const CMS = () => {
                   </td>
               </tr>
             
-            </tbody>
           </React.Fragment>
         ))
       }
+      </tbody>
           </table>
           </div>
 
     </main>
-    </>
+    </div>
   )
 }
 
