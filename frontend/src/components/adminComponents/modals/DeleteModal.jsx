@@ -1,7 +1,19 @@
 import React from 'react'
 import styles from './DeleteModal.module.css'
+import axios from '../../../api/axios.js'
+import toast from 'react-hot-toast'
 
-const DeleteModal = ({toggleDeleteModal}) => {
+const DeleteModal = ({toggleDeleteModal,id}) => {
+
+    const confirmDelete = async() =>{
+        try {
+            const res = await axios.delete(`/locations/${id}`);
+            toast.success("District Deleted")
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+
   return (
     <>
       <div onClick={toggleDeleteModal} className={styles.blurred_background}>
@@ -28,7 +40,7 @@ const DeleteModal = ({toggleDeleteModal}) => {
 
         <div className={styles.delete_footer}>
             <button className={styles.btn_ghost} onClick={toggleDeleteModal}>Cancel</button>
-            <button className={styles.btn_danger}>
+            <button onClick={confirmDelete} className={styles.btn_danger}>
                 <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
                 Delete
             </button>

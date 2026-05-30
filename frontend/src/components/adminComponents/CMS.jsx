@@ -10,6 +10,7 @@ const CMS = () => {
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
   const [modal, setModal] = useState(null)
+  const [selectedDistrict, setSelectedDistrict] = useState(null)
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -52,7 +53,8 @@ const CMS = () => {
   const toggleCreateModal = () => {
     setModal("create")
   }
-  const toggleDeleteModal = () => {
+  const toggleDeleteModal = (district) => {
+    setSelectedDistrict(district)
     setModal("delete")
   }
 
@@ -63,7 +65,7 @@ const CMS = () => {
   return (
     <>
     {modal==='create' && (<CreateModal toggleCreateModal={closeModal} />)}
-    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} />)}
+    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} id={selectedDistrict._id}/>)}
 
 
     <div className={styles.admin_body}>
@@ -100,7 +102,7 @@ const CMS = () => {
             </thead>
             <tbody>
       {
-        filterDistricts.map((disctrict,idx)=>(
+        filterDistricts.map((district,idx)=>(
           <React.Fragment key={idx}>
               <tr>
                 <td>
@@ -109,20 +111,20 @@ const CMS = () => {
                 </svg>
                 </button>
                 </td>
-                <td className={styles.td_name}>{disctrict.district}</td>
-                <td className={styles.td_description}>{disctrict.description}</td>
-                <td className={styles.venue}><span className={`${styles.badge} ${styles.badge_rust}`}>{disctrict.venues.length}</span></td>
+                <td className={styles.td_name}>{district.district}</td>
+                <td className={styles.td_description}>{district.description}</td>
+                <td className={styles.venue}><span className={`${styles.badge} ${styles.badge_rust}`}>{district.venues.length}</span></td>
                 <td className={styles.td_buttons}>
                   <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>Edit</button>
-                  <button onClick={toggleDeleteModal} className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
+                  <button onClick={()=> toggleDeleteModal(district)} className={`${styles.btn_danger} ${styles.btn_sm}`}>Delete</button>
                 </td>
               </tr>
               <tr className={`${styles.venues_row} ${openIndex===idx && styles.active}`}>
                   <td colSpan={5}> 
-                    <div className={styles.venue_label}>Venues in {disctrict.district}</div>
+                    <div className={styles.venue_label}>Venues in {district.district}</div>
                     <div className={styles.venue_pills} >
                     {
-                      disctrict.venues.map((venue,idx)=>(
+                      district.venues.map((venue,idx)=>(
                         
                           <div className={styles.venue_pill} key={idx}>
                             <span className={styles.venue_dot}></span>
@@ -164,7 +166,7 @@ const CMS = () => {
                     <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     </button>
-                    <button onClick={toggleDeleteModal} className={`${styles.btn_danger} ${styles.btn_sm}`}>
+                    <button onClick={()=> toggleDeleteModal(district)} className={`${styles.btn_danger} ${styles.btn_sm}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
                     </button>
                 </div>
