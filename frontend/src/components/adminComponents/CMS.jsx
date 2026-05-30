@@ -9,8 +9,7 @@ const CMS = () => {
   const [openIndex, setOpenIndex] = useState(null)
   const [districts, setDistricts] = useState([])
   const [search, setSearch] = useState('')
-  const [createModal, setCreateModal] = useState(false)
-  const [deleteModal, setDeleteModal] = useState(false)
+  const [modal, setModal] = useState(null)
 
   useEffect(()=>{
     const getLocations = async()=>{
@@ -26,7 +25,7 @@ const CMS = () => {
   ,[])
 
   useEffect(()=>{
-    if(createModal){
+    if(modal){
       document.body.classList.add('active-modal')
     }
     else{
@@ -46,11 +45,15 @@ const CMS = () => {
     }
   }
 
+  const closeModal = () => {
+    setModal(null)
+  }
+
   const toggleCreateModal = () => {
-    setCreateModal(!createModal)
+    setModal("create")
   }
   const toggleDeleteModal = () => {
-    setDeleteModal(!deleteModal)
+    setModal("delete")
   }
 
   const filterDistricts = districts.filter((district)=> (
@@ -58,8 +61,12 @@ const CMS = () => {
   ))
 
   return (
+    <>
+    {modal==='create' && (<CreateModal toggleCreateModal={closeModal} />)}
+    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} />)}
+
+
     <div className={styles.admin_body}>
-    {createModal && <CreateModal toggleCreateModal={toggleCreateModal} />}
     <main>
       <h2 className={styles.page_header}>Locations</h2>
       <p className={styles.page_sub}>Manage districts and their mapped venues.</p>
@@ -157,7 +164,7 @@ const CMS = () => {
                     <button className={`${styles.btn_ghost} ${styles.btn_sm}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                     </button>
-                    <button className={`${styles.btn_danger} ${styles.btn_sm}`}>
+                    <button onClick={toggleDeleteModal} className={`${styles.btn_danger} ${styles.btn_sm}`}>
                       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-1 14H6L5 6"></path></svg>
                     </button>
                 </div>
@@ -183,6 +190,7 @@ const CMS = () => {
 
     </main>
     </div>
+    </>
   )
 }
 
