@@ -11,10 +11,10 @@ const router = express.Router();
 
 router.route('/')
   .get(getLocations)
-  .post(createLocation);
+  .post(protect,createLocation);
 
 router.route('/:id')
-  .put( updateLocation)
-  .delete(deleteLocation);
+  .put(protect, updateLocation)
+  .delete(protect, deleteLocation);
 
 export default router;

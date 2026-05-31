@@ -2,11 +2,14 @@ import { useState } from 'react';
 import api from '../api/axios';
 import '../styles/LoginPage.css'
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading]   = useState(false);
+
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +18,7 @@ const LoginPage = () => {
     try {
       await api.post('/auth/login', { username, password });
       toast.success("Login Success")
+      navigate('/admin-panel');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Login failed. Please try again.');
     } finally {
