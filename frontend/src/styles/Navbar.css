@@ -113,6 +113,9 @@
   .desktop-header {
     display: none;
   }
+  .main-header{
+    height: 0;
+  }
   
   /* Show and style the bottom tab bar */
   .bottom-tab-bar {
