@@ -126,6 +126,9 @@
 .form-group textarea::placeholder {
   color: rgba(15, 13, 10, 0.3);
 }
+.form-group input{
+  background: white !important;
+}
 
 .form-group textarea {
   resize: none;
