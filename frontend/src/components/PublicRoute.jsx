@@ -1,7 +1,7 @@
 // components/PublicRoute.jsx
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import axios from '../api/axios';
+import axios from '../api/axios.js';
 
 const PublicRoute = ({ children }) => {
   const [status, setStatus] = useState('loading');
