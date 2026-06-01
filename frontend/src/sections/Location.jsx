@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import axios from 'axios'
+import axios from '../api/axios.js'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import DistrictAccordion from '../components/DistrictAccordion'
