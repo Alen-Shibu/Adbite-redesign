@@ -8,6 +8,9 @@ const HeroSection = () => {
     {value:"10",suffix:"+",label:"Cities"},
     {value:"200",suffix:"+",label:"Campaigns"}
   ];
+    const scrollTo = (id) => {
+        document.getElementById(id).scrollIntoView({behavior:'smooth'})
+    }
   return (
     <section id="hero" className="hero-section">
       {/* Left side */}
@@ -28,8 +31,8 @@ const HeroSection = () => {
         </p>
 
         <div className="hero-actions">
-          <a href="#contact" className="btn-primary">Start a Campaign</a>
-          <a href="#services" className="btn-ghost">
+          <a onClick={() => scrollTo('contact')} className="btn-primary">Start a Campaign</a>
+          <a onClick={() => scrollTo('services')} className="btn-ghost">
             See Services 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />

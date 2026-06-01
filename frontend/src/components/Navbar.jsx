@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/Navbar.css'
 
 const Navbar = () => {
-
+ 
     const scrollTo = (id) => {
         document.getElementById(id).scrollIntoView({behavior:'smooth'})
     }
