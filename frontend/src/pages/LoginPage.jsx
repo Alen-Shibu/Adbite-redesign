@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import api from '../api/axios';
+import axios from '../api/axios.js';
 import '../styles/LoginPage.css'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ const LoginPage = () => {
     setLoading(true);
 
     try {
-      await api.post('/auth/login', { username, password });
+      await axios.post('/auth/login', { username, password });
       toast.success("Login Success")
       navigate('/admin-panel');
     } catch (err) {
