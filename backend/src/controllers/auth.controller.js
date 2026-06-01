@@ -13,12 +13,13 @@ export const loginAdmin = async (req, res) => {
 
     if (admin && (await admin.matchPassword(password))) {
       const token = generateToken(admin._id);
+      const isProduction = process.env.NODE_ENV === 'production';
 
       res.cookie('jwt', token, {
-        httpOnly: true,                 // Prevents JavaScript from reading the cookie (protects against XSS attacks)
-        secure: process.env.NODE_ENV === 'production', // Only sends via HTTPS in production
-        sameSite: 'lax',             // Protects against CSRF attacks
-        maxAge: 24 * 60 * 60 * 1000,    // Cookie expires in 1 day (matches JWT expiration)
+        httpOnly: true,                 
+        secure: isProduction, 
+        sameSite: isProduction ? 'none' : 'lax',             
+        maxAge: 24 * 60 * 60 * 1000,    
       });
 
       res.status(200).json({
