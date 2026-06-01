@@ -77,7 +77,7 @@
   padding: 12px 14px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--paper);
+  color: var(--paper) !important;
   outline: none;
   transition: border-color 0.2s ease;
 }
