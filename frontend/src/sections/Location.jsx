@@ -36,7 +36,7 @@ const Location = () => {
 
     // 1. FETCH BACKEND DATA
     useEffect(() => {
-        axios.get('http://localhost:5000/api/locations')
+        axios.get('/locations')
         .then(res => {
             setLocations(res.data)
             if(res.data.length > 0){
