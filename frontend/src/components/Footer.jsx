@@ -2,6 +2,9 @@ import React from 'react'
 import '../styles/Footer.css'
 
 const Footer = () => {
+      const scrollTo = (id) => {
+        document.getElementById(id).scrollIntoView({behavior:'smooth'})
+    }
   return (
     <footer className="footer-container">
         <a href="#" className="footer-logo">
@@ -11,12 +14,13 @@ const Footer = () => {
         <p className='footer-copy'>© 2025 Adbite. All rights reserved.</p>
 
         <nav className="footer-links">
-            <a href="#services">Services</a>
-            <a href="#locations">Locations</a>
-            <a href="#contact">Contact</a>
+            <a onClick={() => scrollTo('services')}>Services</a>
+            <a onClick={() => scrollTo('locations')}>Locations</a>
+            <a onClick={() => scrollTo('contact')}>Contact</a>
         </nav>
     </footer>
   )
 }
 
 export default Footer
+ 
