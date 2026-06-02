@@ -131,7 +131,13 @@ const Location = () => {
         setActiveVenue(null);
     }
 
-    if (loading) return <div className='loading-state'>Loading display nodes...</div>;
+    if (loading) return (
+        <div className='loading-state'>
+            <div className="loading-spinner"></div>
+            <p>Mapping your venues</p>
+            <span className="loading-dots">...</span>
+        </div>
+    );
 
     return (
         <section id="locations" className="locations-section">
