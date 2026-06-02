@@ -3,12 +3,13 @@ import styles from './DeleteModal.module.css'
 import axios from '../../../api/axios.js'
 import toast from 'react-hot-toast'
 
-const DeleteModal = ({toggleDeleteModal,id}) => {
+const DeleteModal = ({toggleDeleteModal,refreshLocations,id}) => {
 
     const confirmDelete = async() =>{
         try {
             const res = await axios.delete(`/locations/${id._id}`);
             toast.success("District Deleted")
+            await refreshLocations();
             toggleDeleteModal()
         } catch (error) {
             toast.error(error.response.data.message)

@@ -3,7 +3,7 @@ import styles from './EditModal.module.css'
 import axios from '../../../api/axios.js'
 import toast from 'react-hot-toast';
 
-const Modal = ({id,toggleEditModal}) => {
+const Modal = ({id,refreshLocations,toggleEditModal}) => {
 
   const [formData, setFormData] = useState({
     district:id.district,
@@ -51,6 +51,7 @@ const Modal = ({id,toggleEditModal}) => {
     try {
       const res = await axios.put(`/locations/${id._id}`,payload);
       toast.success("District Edited Successfully")
+      await refreshLocations();
       toggleEditModal();
     } catch (error) {
       console.log('Error in submitForm to Edit location',error.message)

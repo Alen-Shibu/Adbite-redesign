@@ -3,7 +3,7 @@ import styles from './CreateModal.module.css'
 import axios from '../../../api/axios.js'
 import toast from 'react-hot-toast';
 
-const Modal = ({toggleCreateModal}) => {
+const Modal = ({toggleCreateModal,refreshLocations}) => {
 
   const [formData, setFormData] = useState({
     district:'',
@@ -46,6 +46,7 @@ const Modal = ({toggleCreateModal}) => {
     try {
       const res = await axios.post('/locations',payload);
       toast.success("District Added Successfully")
+      await refreshLocations();
       toggleCreateModal();
     } catch (error) {
       console.log('Error in submitForm to create location',error.message)

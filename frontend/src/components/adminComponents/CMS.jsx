@@ -14,29 +14,24 @@ const CMS = () => {
   const [selectedDistrict, setSelectedDistrict] = useState(null)
 
   useEffect(()=>{
-    const getLocations = async()=>{
-      try {
-        const res = await axios.get('/locations');
-        setDistricts(res.data)
-      } catch (error) {
-        console.log('Error in fetching locations',error)
-      }
-    }
-    getLocations();
-  }
-  ,[])
-
-  useEffect(()=>{
     if(modal){
       document.body.classList.add('active-modal')
     }
     else{
       document.body.classList.remove('active-modal')
     }
-
     return () => {
       document.body.classList.remove('active-modal')
     }
+  },[modal])
+
+  const getLocations = async()=>{
+    const res = await axios.get('/locations');
+    setDistricts(res.data)
+  }
+
+  useEffect(()=>{
+    getLocations();
   },[])
 
   const toggleAccordion = (index) =>{
@@ -69,9 +64,9 @@ const CMS = () => {
 
   return (
     <>
-    {modal==='create' && (<CreateModal toggleCreateModal={closeModal} />)}
-    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} id={selectedDistrict}/>)}
-    {modal==='edit' && (<EditModal toggleEditModal={closeModal} id={selectedDistrict}/>)}
+    {modal==='create' && (<CreateModal toggleCreateModal={closeModal} refreshLocations={getLocations} />)}
+    {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
+    {modal==='edit' && (<EditModal toggleEditModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
 
 
     <div className={styles.admin_body}>
