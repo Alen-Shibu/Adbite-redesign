@@ -191,6 +191,7 @@
  .mockup-1 img{
       height: 100%;
       width: 100%;
+      filter: brightness(0.75) contrast(1.05);
   }
 .mockup-2 { animation-delay: -2s; width: 200px; align-self: flex-start; margin-left: 60px; }
 .mockup-3 { animation-delay: -4s; width: 220px; align-self: flex-end; margin-right: 40px; }

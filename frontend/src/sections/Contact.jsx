@@ -42,21 +42,21 @@ const Contact = () => {
                 <div className="contact-info-card">
                     <div className="contact-item-label">Email</div>
                     <div className="contact-item-val">
-                    <a href="mailto:hello@adbite.in">hello@adbite.in</a>
+                    <a href="mailto:contact@gmail.com">contact@gmail.com</a>
                     </div>
                  </div>
 
                  <div className="contact-info-card">
                     <div className="contact-item-label">Phone</div>
                     <div className="contact-item-val">
-                    <a href="tel:+919876543210">+91 98765 43210</a>
+                    <a href="tel:+919876543210">+91 6282359567</a>
                     </div>
                 </div>
 
                 <div className="contact-info-card">
                     <div className="contact-item-label">Headquarters</div>
                     <div className="contact-item-val">
-                    thiruvalla, Kerala<br/>India — 682 001
+                    Near Mallappally Thiruvalla Road Market,<br /> Mallappally,Kerala 689585
                     </div>
                 </div>
 
