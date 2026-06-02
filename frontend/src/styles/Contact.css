@@ -61,6 +61,26 @@
   color: var(--rust);
 }
 
+.whatsapp-card {
+  text-align: left;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
 /* RIGHT SIDE: FORM ARTIFACTS */
 
 .contact-form {
