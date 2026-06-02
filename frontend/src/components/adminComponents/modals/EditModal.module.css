@@ -270,3 +270,9 @@
     stroke: currentColor;
     flex-shrink: 0;
 }
+
+@media (max-width: 870px) {
+    .modal_container{
+        padding: 0;
+    }
+}
