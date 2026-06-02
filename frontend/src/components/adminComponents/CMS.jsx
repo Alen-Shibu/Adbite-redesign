@@ -4,6 +4,7 @@ import axios from '../../api/axios.js'
 import CreateModal from './modals/CreateModel.jsx'
 import DeleteModal from './modals/DeleteModal.jsx'
 import EditModal from './modals/EditModal.jsx'
+import LoadingScreen from '../LoadingScreen.jsx'
 
 
 const CMS = () => {
@@ -12,6 +13,7 @@ const CMS = () => {
   const [search, setSearch] = useState('')
   const [modal, setModal] = useState(null)
   const [selectedDistrict, setSelectedDistrict] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=>{
     if(modal){
@@ -26,8 +28,21 @@ const CMS = () => {
   },[modal])
 
   const getLocations = async()=>{
+
+    let showLoadingTimeout;
+    showLoadingTimeout = setTimeout(() => {
+        setLoading(true)
+    }, 800)
+
+    try {
     const res = await axios.get('/locations');
     setDistricts(res.data)
+    } catch (error) {
+      console.error('Failed to fetch:', error.message)
+    } finally{
+      clearTimeout(showLoadingTimeout)
+      setLoading(false)
+    }
   }
 
   useEffect(()=>{
@@ -64,6 +79,7 @@ const CMS = () => {
 
   return (
     <>
+    {loading && <LoadingScreen />}
     {modal==='create' && (<CreateModal toggleCreateModal={closeModal} refreshLocations={getLocations} />)}
     {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
     {modal==='edit' && (<EditModal toggleEditModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
