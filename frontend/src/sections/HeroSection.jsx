@@ -26,8 +26,9 @@ const HeroSection = () => {
         </h1>
 
         <p className='hero-sub'>
-          Adbite places your brand inside the spaces people actually spend time — 
-          gyms, clinics, cafés, salons, and more. High-impact indoor advertising across Kerala.
+          ഫുഡ്‌കോർട്ടുകളിലും ജനത്തിരക്കേറിയ ഇടങ്ങളിലുമായി
+          നിങ്ങളുടെ ബ്രാൻഡിനെ ശ്രദ്ധിക്കപ്പെടുന്ന രീതിയിൽ അവതരിപ്പിക്കൂ.
+          കൂടുതൽ ആളുകളിലെത്തൂ, കൂടുതൽ വിശ്വാസം നേടൂ
         </p>
 
         <div className="hero-actions">
@@ -64,7 +65,7 @@ const HeroSection = () => {
         <div className="hero-visual-content">
           {/* Card 1 */}
           <div className="ad-mockup mockup-1">
-            <div className="mockup-img"><span>ADBITE</span></div>
+            <div className="mockup-img"><img src="/adbitelogo.jpeg" alt="adbite logo" /></div>
             <div className="mockup-bar accent"></div>
             <div className="mockup-bar short"></div>
             <div className="mockup-bar xs"></div>

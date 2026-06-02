@@ -42,21 +42,21 @@ const Contact = () => {
                 <div className="contact-info-card">
                     <div className="contact-item-label">Email</div>
                     <div className="contact-item-val">
-                    <a href="mailto:hello@adbite.in">hello@adbite.in</a>
+                    <a href="mailto:contact@gmail.com">contact@gmail.com</a>
                     </div>
                  </div>
 
                  <div className="contact-info-card">
                     <div className="contact-item-label">Phone</div>
                     <div className="contact-item-val">
-                    <a href="tel:+919876543210">+91 98765 43210</a>
+                    <a href="tel:+919876543210">+91 6282359567</a>
                     </div>
                 </div>
 
                 <div className="contact-info-card">
                     <div className="contact-item-label">Headquarters</div>
                     <div className="contact-item-val">
-                    thiruvalla, Kerala<br/>India — 682 001
+                    Near Mallappally Thiruvalla Road Market,<br /> Mallappally,Kerala 689585
                     </div>
                 </div>
 
@@ -64,6 +64,18 @@ const Contact = () => {
                     <div className="contact-item-label">Business Hours</div>
                     <div className="contact-item-val">Mon – Sat, 9 AM – 6 PM</div>
                 </div>
+                <div className="contact-info-card whatsapp-card">
+  <div className="contact-item-label">Quick Contact</div>
+
+  <a
+    href="https://wa.me/916282359567?text=Hi%20ADBite,%20I'd%20like%20to%20know%20more%20about%20your%20advertising%20services."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="whatsapp-btn"
+  >
+    WhatsApp Us →
+  </a>
+</div>
             </div>
 
             {/* Right column */}
