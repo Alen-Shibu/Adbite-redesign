@@ -46,6 +46,7 @@ const Modal = ({toggleCreateModal}) => {
     try {
       const res = await axios.post('/locations',payload);
       toast.success("District Added Successfully")
+      toggleCreateModal();
     } catch (error) {
       console.log('Error in submitForm to create location',error.message)
       toast.error(error.response?.data?.message || "Adding District Failed")

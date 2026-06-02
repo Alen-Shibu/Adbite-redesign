@@ -9,6 +9,7 @@ const DeleteModal = ({toggleDeleteModal,id}) => {
         try {
             const res = await axios.delete(`/locations/${id._id}`);
             toast.success("District Deleted")
+            toggleDeleteModal()
         } catch (error) {
             toast.error(error.response.data.message)
         }

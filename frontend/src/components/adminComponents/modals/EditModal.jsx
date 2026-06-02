@@ -51,6 +51,7 @@ const Modal = ({id,toggleEditModal}) => {
     try {
       const res = await axios.put(`/locations/${id._id}`,payload);
       toast.success("District Edited Successfully")
+      toggleEditModal();
     } catch (error) {
       console.log('Error in submitForm to Edit location',error.message)
       toast.error(error.response?.data?.message || "Editing District Failed")
