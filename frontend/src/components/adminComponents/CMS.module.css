@@ -393,6 +393,9 @@ tbody td{
     .cards_list {
         display: flex;
     }
+    main{
+        width: 100vw;
+    }
 }
 
 .active_venue{
