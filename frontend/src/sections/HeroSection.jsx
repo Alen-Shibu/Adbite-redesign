@@ -65,7 +65,7 @@ const HeroSection = () => {
         <div className="hero-visual-content">
           {/* Card 1 */}
           <div className="ad-mockup mockup-1">
-            <div className="mockup-img"><span>ADBITE</span></div>
+            <div className="mockup-img"><img src="/adbitelogo.jpeg" alt="adbite logo" /></div>
             <div className="mockup-bar accent"></div>
             <div className="mockup-bar short"></div>
             <div className="mockup-bar xs"></div>

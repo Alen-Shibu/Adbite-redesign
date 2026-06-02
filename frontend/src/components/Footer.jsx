@@ -7,7 +7,7 @@ const Footer = () => {
     }
   return (
     <footer className="footer-container">
-        <a href="#" className="footer-logo">
+        <a onClick={() => scrollTo('hero')} className="footer-logo">
             AD<span>BITE</span>
         </a>
 
