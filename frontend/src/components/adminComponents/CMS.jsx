@@ -14,7 +14,6 @@ const CMS = () => {
   const [modal, setModal] = useState(null)
   const [selectedDistrict, setSelectedDistrict] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [showLoader, setShowLoader] = useState(false)
 
   useEffect(()=>{
     if(modal){
@@ -29,7 +28,6 @@ const CMS = () => {
   },[modal])
 
   const getLocations = async()=>{
-    const timer = setTimeout(() => setShowLoader(true), 500) 
     try {
     const res = await axios.get('/locations');
     setDistricts(res.data)
@@ -37,7 +35,6 @@ const CMS = () => {
       console.error('Failed to fetch:', error.message)
     } finally{
       setLoading(false)
-      setShowLoader(false)
     }
   }
 
@@ -73,9 +70,12 @@ const CMS = () => {
     district.district.toLowerCase().includes(search.toLowerCase())
   ))
 
+  if(loading){
+    return <LoadingScreen />
+  }
+
   return (
     <>
-    {(loading && showLoader) && <LoadingScreen />}
     {modal==='create' && (<CreateModal toggleCreateModal={closeModal} refreshLocations={getLocations} />)}
     {modal==='delete' && (<DeleteModal toggleDeleteModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
     {modal==='edit' && (<EditModal toggleEditModal={closeModal} refreshLocations={getLocations}  id={selectedDistrict}/>)}
