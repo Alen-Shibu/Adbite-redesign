@@ -2,7 +2,7 @@
 
 A full-stack redesign of [adbite.in](https://info.adbite.in/), a Kerala-based indoor advertising platform. The project includes a public-facing marketing website and a protected admin CMS for managing district-level venue data across Kerala.
 
-**Live:** [adbite.vercel.app](https://adbite.vercel.app) &nbsp;|&nbsp; **Admin Portal:** `/admin`
+**Live:** [adbite.vercel.app](https://adbite.vercel.app) &nbsp;|&nbsp; **Admin Portal:** `/admin -> username: admin,pass: 12345`
 
 ---
 
